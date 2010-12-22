@@ -36,13 +36,13 @@ connstate state = INIT;
 int plainallowed = 0;
 
 String streaminit = "<stream:stream "
-"xmlns='jabber:client' "
-"xmlns:stream='http://etherx.jabber.org/streams' "
-"to='ceit.org' "
-"version='1.0'>";
+                    "xmlns='jabber:client' "
+                    "xmlns:stream='http://etherx.jabber.org/streams' "
+                    "to='ceit.org' "
+                    "version='1.0'>";
 
 String plainauthreq = "<auth xmlns='urn:ietf:params:xml:ns:xmpp-sasl'"
-"      mechanism='MD5-DIGEST'>=</auth>";
+"      mechanism='PLAIN'>AG1pcnJvcgA5ODgxMjQ=</auth>";
 
 
 void setup() {
