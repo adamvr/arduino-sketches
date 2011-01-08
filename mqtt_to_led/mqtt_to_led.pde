@@ -1,6 +1,15 @@
-#include <Ethernet.h>
 #include <PubSubClient.h>
-#include <EthernetDHCP.h>
+
+#include <Client.h>
+#include <Dhcp.h>
+#include <dns.h>
+#include <Ethernet.h>
+#include <Server.h>
+#include <sockutil.h>
+#include <Udp.h>
+#include <util.h>
+
+
 
 const int updatePeriod = 1000;
 unsigned long prevMillis;
@@ -31,7 +40,11 @@ void callback(char * topic, byte * payload, int length) {
 void setup() {
   Serial.begin(9600);
   /* Block until we acquire an IP address */
-  EthernetDHCP.begin(mac);
+  Serial.println("Acquiring IP address");
+  if(Dhcp.beginWithDHCP(mac) != 1) {
+    Serial.println("Unable to acquire IP address, retrying");
+    delay(5000);
+  }
 
   while(!client.connect(nodeName)) {
     Serial.println("Unable to connect to MQTT broker");

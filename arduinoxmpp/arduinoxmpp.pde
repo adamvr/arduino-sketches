@@ -122,7 +122,7 @@ void XML_callback( uint8_t statusflags, char* tagName,  uint16_t tagNameLen,  ch
      Serial.print(" text:");
      Serial.println(data);
      */
-
+    
     if(String(tagName) == "/echanism/mechanism") {
       state = AUTH_SELECT;
       if(String(data) == "PLAIN") {
