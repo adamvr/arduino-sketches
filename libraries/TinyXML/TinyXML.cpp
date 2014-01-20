@@ -10,8 +10,7 @@
  *
  * See the examples for usage
  */
-#include "WProgram.h"
-#include "WConstants.h"
+#include "Arduino.h"
 #include <inttypes.h>
 #include <avr/pgmspace.h>
 
