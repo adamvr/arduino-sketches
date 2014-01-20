@@ -1,8 +1,7 @@
 //
 // definitions for the parsing table structure
 //
-#include "WProgram.h"
-#include "WConstants.h"
+#include "Arduino.h"
 #include <inttypes.h>
 #include <avr/pgmspace.h>
 
