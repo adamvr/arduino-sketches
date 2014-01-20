@@ -1,8 +1,7 @@
 #ifndef TinyXML_h
 #define TinyXML_h
 
-#include "WProgram.h"
-#include "WConstants.h"
+#include "Arduino.h"
 #include <inttypes.h>
 typedef void (*XMLcallback) (uint8_t errorflag, char* nameBuffer,  uint16_t namebuflen, char* dataBuffer,  uint16_t databuflen);
 
