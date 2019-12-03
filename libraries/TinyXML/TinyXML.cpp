@@ -131,7 +131,10 @@ void TinyXML::action(uint8_t ch, uint8_t actionType)
     LTCount++;
     break;
   case decLTcount:
-    if (--LTCount < 0 ) action(ch,error);
+    if (LTCount == 0)
+      action(ch,error);
+    else
+      --LTCount;
     break;
   case cleardata:
     dataBufferPtr = 0;
@@ -200,11 +203,12 @@ void TinyXML::action(uint8_t ch, uint8_t actionType)
     break;
   case checkremovelasttag:
     // need to test here to see if the tag being removed is the correct one - error if not
-    if (--tagCount < 0 )
+    if (tagCount == 0 )
 	{
 		action(ch,error);
 		break;
 	}
+    tagCount--;
     tagBufferPtr--;      // we have had a start so back past the last '/' we placed when the tag started
     tagBuffer[tagBufferPtr] = 0;
     Xcb(STATUS_END_TAG,(char*)tagBuffer,tagBufferPtr,0,0);
