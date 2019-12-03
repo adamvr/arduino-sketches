@@ -56,7 +56,7 @@ void TinyXML::processChar(uint8_t ch)
     switch ( chToParse )
     {
     case whiteSpace:
-      if (ch == ' ' || ch == '\t' || ch == '\n' | ch == '\r') bMatch=true;
+      if (ch == ' ' || ch == '\t' || ch == '\n' || ch == '\r') bMatch=true;
       break;
     case alpha:
       if (isAlpha(ch))  bMatch=true;
